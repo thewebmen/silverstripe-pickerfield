@@ -23,7 +23,7 @@ class PickerFieldAddExistingSearchHandler extends GridFieldAddExistingSearchHand
 		}
 
 		// appropriate handling of has_one relationships
-		$childProperty = $this->grid->getName() . 'ID';
+		$childProperty = $this->grid->getName();
 		$this->grid->childObject->$childProperty = $id;
 		$this->grid->childObject->write();
 	}
