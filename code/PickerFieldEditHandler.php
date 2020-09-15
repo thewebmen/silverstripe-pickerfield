@@ -11,7 +11,8 @@ use SilverStripe\GraphQL\Controller;
 class PickerFieldEditHandler extends GridFieldDetailForm_ItemRequest {
 
 	public function doSave($data, $form) {
-
+        $isNewRecord = $this->record->ID == 0;
+        
 	    /**
 	     * modelled after doSave method on GridFieldDetailForm_ItemRequest
 	     */
@@ -65,7 +66,7 @@ class PickerFieldEditHandler extends GridFieldDetailForm_ItemRequest {
 	    }
 
 
-	    return $this->edit(Controller::curr()->getRequest());
+	    return $this->redirectAfterSave($isNewRecord);
 	}
 
 
